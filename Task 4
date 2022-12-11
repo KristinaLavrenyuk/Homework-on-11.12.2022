@@ -4,26 +4,43 @@ using namespace std;
 
 int main()
 {
-    int a, x, y;
-    cin >> a >> x >> y;
-    char array[100][100]{};
+    char array[100][100]{}, arr[100][100]{};
+    int a[100]{}, x[100]{}, y[100]{}, n, iii = 0, jjj = 0;
+    cin >> n;
 
-    for (int i = 0; i < a; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < a; j++)
+        cin >> a[i] >> x[i] >> y[i];
+    }
+    for (int ii = 0; ii < n; ii++)
+    {
+        iii = y[ii], jjj = x[ii];
+        for (int i = 0; i < a[ii]; i++)
         {
-            array[i][j] = '*';
+            for (int j = 0; j < a[ii]; j++)
+            {
+                array[i][j] = '*';
+            }
+        }
+        for (int i = 0; i < a[ii]; i++)
+        {
+            for (int j = 0; j < a[ii]; j++)
+            {
+                arr[iii][jjj] = array[i][j];
+                jjj++;
+            }
+            iii++;
+            jjj = x[ii];
         }
     }
-    for (int i = 0; i < a; i++)
+    for (int i = 0; i < 100; i++)
     {
-        for (int c = 0; c < y && i == 0; c++) cout << endl;
-        for (int j = 0; j < a; j++)
+        for (int j = 0; j < 100; j++)
         {
-            for (int cc = 0; cc < x && j == 0; cc++) cout << ' ';
-            cout << array[i][j];
+            cout << arr[i][j];
         }
         cout << endl;
     }
     system("pause");
 }
+
