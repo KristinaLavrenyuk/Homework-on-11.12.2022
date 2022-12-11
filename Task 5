@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char array[100][100]{}, arr[100][100]{}, simb[100]{};
+    int n[100]{}, x[100]{}, y[100]{}, num, iii = 0, jjj = 0, m[100]{};
+    cin >> num;
+
+    for (int i = 0; i < num; i++)
+    {
+        cin >> n[i] >> m[i] >> simb[i] >> x[i] >> y[i];
+    }
+    for (int ii = 0; ii < num; ii++)
+    {
+        iii = y[ii], jjj = x[ii];
+        for (int i = 0; i < n[ii]; i++)
+        {
+            for (int j = 0; j < m[ii]; j++)
+            {
+                array[i][j] = simb[ii];
+            }
+        }
+        for (int i = 0; i < n[ii]; i++)
+        {
+            for (int j = 0; j < m[ii]; j++)
+            {
+                arr[iii][jjj] = array[i][j];
+                jjj++;
+            }
+            iii++;
+            jjj = x[ii];
+        }
+    }
+    for (int i = 0; i < 79; i++)
+    {
+        for (int j = 0; j < 79; j++)
+        {
+            cout << arr[i][j];
+        }
+        cout << endl;
+    }
+    system("pause");
+}
